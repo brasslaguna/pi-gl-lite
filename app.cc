@@ -11,13 +11,13 @@ void App::Init(void) {
 
 	plane_ = glshape::plane::Create(2, 2);
 
-	auto fragment_shader_ = shader(new gl::Shader(GL_FRAGMENT_SHADER));
+	fragment_shader_ = gl::ShaderPtr(new gl::Shader(GL_FRAGMENT_SHADER));
 	fragment_shader_->load_file(root_dir_ + "/shader/fragment.glsl");
 
-	auto vertex_shader_ = shader(new gl::Shader(GL_VERTEX_SHADER));
+	vertex_shader_ = gl::ShaderPtr(new gl::Shader(GL_VERTEX_SHADER));
 	vertex_shader_->load_file(root_dir_ + "/shader/vertex.glsl");
 
-	auto shader_program_ = shader_program(new gl::ShaderProgram);
+	shader_program_ = gl::ShaderProgramPtr(new gl::ShaderProgram);
 
 	shader_program_->Attach(*vertex_shader_);
 	shader_program_->Attach(*fragment_shader_);

@@ -14,7 +14,8 @@ class App {
 		App(char** argv) {
 
 			auto exe_name = std::string(argv[0]);
-			root_dir_ = exe_name.substr(0, exe_name.find_last_of("\\/"));
+			root_dir_ = exe_name.substr(0, exe_name.find_last_of("\\/")) + "/..";
+
 
 		};
 
@@ -25,10 +26,12 @@ class App {
 	private:
 
 		gl::ShaderProgramPtr shader_program_;
+		gl::ShaderPtr vertex_shader_;
+		gl::ShaderPtr fragment_shader_;
 
 		gl::MeshPtr plane_;
 
-		std:string root_dir_;
+		std::string root_dir_;
 
 };
 
