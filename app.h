@@ -3,6 +3,7 @@
 #define PI_GL_LITE_APP_H_
 
 #include <string>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "shader_program/shader_program.h"
 #include "mesh/mesh.h"

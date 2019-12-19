@@ -35,13 +35,13 @@ void App::Draw(void) {
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	
-	glClearColor(0, 0.5f, 1.0f, 0);
+	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	const GLenum buffers[] = { GL_COLOR_ATTACHMENT0 };
 	glDrawBuffers(1, buffers);
 
-	animation_time_ += 0.1f;
+	animation_time_ += 0.001f;
 
 	shader_program_->Use();
 

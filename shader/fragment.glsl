@@ -12,7 +12,7 @@ uniform float time;
 
 mat2 makem2(in float theta) { float c = cos(theta); float s = sin(theta); return mat2(c,-s,s,c); }
 
-float noise( in vec2 x ){ /*return texture(iChannel0, x*.01).x;*/ return 0.5; }
+float noise( in vec2 x ){ /*return texture(iChannel0, x*.01).x;*/ return 0.005; }
 
 float fbm(in vec2 p)
 {	
