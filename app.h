@@ -33,6 +33,11 @@ class App {
 
 		std::string root_dir_;
 
+		float animation_time_ = 0.0f;
+
+		int viewport_height_;
+		int viewport_width_;
+
 };
 
 #endif // PI_GL_LITE_APP_H_
