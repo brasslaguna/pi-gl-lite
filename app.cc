@@ -125,7 +125,7 @@ void App::Draw(void) {
 
 	shader_program_->Use();
 
-	shader_program_->SetUniform("time", animation_time_);
+	shader_program_->SetUniform("animation_time", animation_time_);
 
 	shader_program_->SetUniform("resolution", glm::value_ptr( glm::vec2(viewport_width_, viewport_height_) ));
 
