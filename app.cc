@@ -59,8 +59,8 @@ void App::Init(void) {
 
 				{ GL_TEXTURE_MAG_FILTER, GL_NEAREST },
 				{ GL_TEXTURE_MIN_FILTER, GL_NEAREST },
-				{ GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE },
-				{ GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE }
+				{ GL_TEXTURE_WRAP_S, GL_REPEAT },
+				{ GL_TEXTURE_WRAP_T, GL_REPEAT }
 
 			}
 
@@ -101,6 +101,14 @@ void App::Init(void) {
 
 	plane_->Draw();
 
+	noise_texture_ = 
+
+		std::static_pointer_cast<gl::Texture>(
+
+			framebuffer_->Get("color", GL_TEXTURE_2D)
+		
+		);
+
 }
 
 void App::Draw(void) {
@@ -121,7 +129,7 @@ void App::Draw(void) {
 
 	shader_program_->SetUniform("resolution", glm::value_ptr( glm::vec2(viewport_width_, viewport_height_) ));
 
-	framebuffer_->Get("color", GL_TEXTURE_2D)->Bind(1);
+	noise_texture_->Bind(1);
 
 	shader_program_->SetUniform("noise_texture", 1);
 

@@ -36,6 +36,7 @@ class App {
 		gl::ShaderPtr noise_fragment_shader_;
 
 		gl::FramebufferPtr framebuffer_;
+		gl::TexturePtr noise_texture_;
 
 		gl::MeshPtr plane_;
 
