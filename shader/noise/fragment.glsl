@@ -106,7 +106,9 @@ float pnoise(vec2 P, vec2 rep)
 }
 
 void main() {
+
+  float noise = cnoise(vertex_texture);
   
-  frag_color = vec4(cnoise(vertex_texture), 1.0);
+  frag_color = vec4(noise, noise, noise, 1.0);
 
 }

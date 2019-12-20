@@ -5,6 +5,7 @@
 #include <string>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "framebuffer/framebuffer.h"
 #include "shader_program/shader_program.h"
 #include "mesh/mesh.h"
 

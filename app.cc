@@ -49,6 +49,7 @@ void App::Init(void) {
 
 		(gl::TextureConfig) {
 
+			.name = "color",
 			.target = GL_TEXTURE_2D,
 			.internal_format = GL_RGBA,
 			.format = GL_RGBA,
