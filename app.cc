@@ -30,7 +30,7 @@ void App::Init(void) {
 	shader_program_->GetUniforms();
 
 
-	framebuffer_ = gl::FramebufferPtr(
+	/*framebuffer_ = gl::FramebufferPtr(
 
 		new gl::Framebuffer(
 
@@ -107,7 +107,7 @@ void App::Init(void) {
 
 			framebuffer_->Get("color", GL_TEXTURE_2D)
 		
-		);
+		);*/
 
 }
 
@@ -121,7 +121,7 @@ void App::Draw(void) {
 	const GLenum buffers[] = { GL_COLOR_ATTACHMENT0 };
 	glDrawBuffers(1, buffers);
 
-	animation_time_ += 0.001f;
+	animation_time_ += 0.6f;
 
 	shader_program_->Use();
 
@@ -129,9 +129,9 @@ void App::Draw(void) {
 
 	shader_program_->SetUniform("resolution", glm::value_ptr( glm::vec2(viewport_width_, viewport_height_) ));
 
-	noise_texture_->Bind((GLuint)1);
+	//noise_texture_->Bind((GLuint)1);
 
-	shader_program_->SetUniform("noise_texture", (GLuint)1);
+	//shader_program_->SetUniform("noise_texture", (GLuint)1);
 
 	plane_->Draw();
 	

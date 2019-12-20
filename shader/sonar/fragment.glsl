@@ -1,5 +1,5 @@
 
-precision lowp float;
+precision highp float;
 
 out vec4 frag_color;
 
@@ -15,13 +15,13 @@ void main()
 {
 	vec2 p = gl_FragCoord.xy/resolution.xy;
 
-    float time = 30.0 + 0.1*animation_ime;
+    float time = 30.0 + 0.1*animation_time;
     vec2 cc = 1.1*vec2( 0.5*cos(0.1*time) - 0.25*cos(0.2*time), 
 	                    0.5*sin(0.1*time) - 0.25*sin(0.2*time) );
 
 	vec4 dmin = vec4(1000.0);
     vec2 z = (-1.0 + 2.0*p)*vec2(1.7,1.0);
-    for( int i=0; i<64; i++ )
+    for( int i=0; i<5; i++ )
     {
         z = cc + vec2( z.x*z.x - z.y*z.y, 2.0*z.x*z.y );
 
