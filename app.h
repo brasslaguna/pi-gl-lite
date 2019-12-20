@@ -30,6 +30,12 @@ class App {
 		gl::ShaderPtr vertex_shader_;
 		gl::ShaderPtr fragment_shader_;
 
+		gl::ShaderProgramPtr noise_shader_program_;
+		gl::ShaderPtr noise_vertex_shader_;
+		gl::ShaderPtr noise_fragment_shader_;
+
+		gl::FramebufferPtr framebuffer_;
+
 		gl::MeshPtr plane_;
 
 		std::string root_dir_;
