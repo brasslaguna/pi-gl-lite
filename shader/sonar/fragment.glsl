@@ -7,12 +7,13 @@ in vec2 vertex_texture;
 
 uniform vec2 resolution;
 uniform float time;
+uniform sampler2D noise_texture;
 
 #define tau 6.2831853
 
 mat2 makem2(in float theta) { float c = cos(theta); float s = sin(theta); return mat2(c,-s,s,c); }
 
-float noise( in vec2 x ){ /*return texture(iChannel0, x*.01).x;*/ return 0.005; }
+float noise( in vec2 x ){ return texture(noise_texture, x*.01).x; }
 
 float fbm(in vec2 p)
 {	

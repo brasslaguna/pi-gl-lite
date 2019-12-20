@@ -121,6 +121,10 @@ void App::Draw(void) {
 
 	shader_program_->SetUniform("resolution", glm::value_ptr( glm::vec2(viewport_width_, viewport_height_) ));
 
+	framebuffer_->Get("color", GL_TEXTURE_2D)->Bind(1);
+
+	shader_program_->SetUniform("noise_texture", 1);
+
 	plane_->Draw();
 	
 }
