@@ -1,5 +1,5 @@
 
-precision highp float;
+precision lowp float;
 
 out vec4 frag_color;
 
@@ -100,7 +100,7 @@ float noiseTex(in vec3 x)
     vec3 fr = fract(x);
 	fr = fr * fr * (3.0 - 2.0 * fr);
 	vec2 uv = (fl.xy + vec2(37.0, 17.0) * fl.z) + fr.xy;
-	vec2 rg = textureLod(noise_texture, (uv + 0.5) * 0.00390625, 0.0 ).xy;
+	vec2 rg = textureLod(noise_texture, (uv + 0.5) * 0.00390625, 0.0 ).xy + 0.5;
 	return mix(rg.y, rg.x, fr.z);
 }
 // 2 components returned
@@ -110,7 +110,7 @@ vec2 noiseTex2(in vec3 x)
     vec3 fr = fract(x);
 	fr = fr * fr * (3.0 - 2.0 * fr);
 	vec2 uv = (fl.xy + vec2(37.0, 17.0) * fl.z) + fr.xy;
-	vec4 rgba = textureLod(noise_texture, (uv + 0.5) * 0.00390625, 0.0 ).xyzw;
+	vec4 rgba = textureLod(noise_texture, (uv + 0.5) * 0.00390625, 0.0 ).xyzw + 0.5;
 	return mix(rgba.yw, rgba.xz, fr.z);
 }
 
@@ -177,8 +177,8 @@ void main()
 	camLookat=vec3(0,0.0,0);
 
     // debugging camera
-    float mx=(0.0/resolution.x+0.375)*PI*2.0-0.7 + localTime*3.1415 * 0.0625*0.666*0.0;
-	float my=-0.0*0.0/resolution.y*10.0 - sin(localTime * 0.31)*0.5*0.0;//*PI/2.01;
+    float mx=(0.5/resolution.x+0.375)*PI*2.0-0.7 + localTime*3.1415 * 0.0625*0.666*0.0;
+	float my=-0.5*0.0/resolution.y*10.0 - sin(localTime * 0.31)*0.5*0.0;//*PI/2.01;
 	camPos += vec3(cos(my)*cos(mx),sin(my),cos(my)*sin(mx))*(3.2);
     camPos.z -= time * 0.5;
     camLookat.z -= time * 0.5;
@@ -205,7 +205,7 @@ void main()
     marchCount = 0.0;
     {
         // ray marching time
-        for (int i = max(0,-iFrame); i < 150; i++)	// This is the count of the max times the ray actually marches.
+        for (int i = 0; i < 10; i++)	// This is the count of the max times the ray actually marches.
         {
             pos = camPos + rayVec * t;
             // *******************************************************
@@ -257,5 +257,6 @@ void main()
 
 	// output the final color with sqrt for "gamma correction"
 	frag_color = vec4(sqrt(clamp(finalColor, 0.0, 1.0)),1.0);
+
 }
 

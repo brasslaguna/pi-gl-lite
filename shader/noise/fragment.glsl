@@ -107,7 +107,7 @@ float pnoise(vec2 P, vec2 rep)
 
 void main() {
 
-  float noise = cnoise(vertex_texture);
+  float noise = cnoise(gl_FragCoord.xy);
   
   frag_color = vec4(noise, noise, noise, 1.0);
 

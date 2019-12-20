@@ -36,8 +36,8 @@ void App::Init(void) {
 
 			(gl::FramebufferConfig) {
 
-				.width = viewport_width_,
-				.height = viewport_height_
+				.width = 256,
+				.height = 256
 
 			}
 
@@ -129,9 +129,9 @@ void App::Draw(void) {
 
 	shader_program_->SetUniform("resolution", glm::value_ptr( glm::vec2(viewport_width_, viewport_height_) ));
 
-	noise_texture_->Bind(1);
+	noise_texture_->Bind((GLuint)1);
 
-	shader_program_->SetUniform("noise_texture", 1);
+	shader_program_->SetUniform("noise_texture", (GLuint)1);
 
 	plane_->Draw();
 	
